@@ -5,6 +5,7 @@ const submit = myDoc.querySelector("#submit");
 const user = myDoc.querySelector('#username');
 const title = myDoc.querySelector("#blogTitle");
 const entry = myDoc.querySelector("#blogContent");
+const noForm = myDoc.getElementById("noForm");
 // TODO: Create a function that handles the form submission. Grab the form data and store it in local storage, then redirect to the blog page using the `redirectPage` function. If the form is submitted with missing data, display an error message to the user.
 function submitForm() {
     const newUser = user.value;
@@ -12,11 +13,11 @@ function submitForm() {
     const newContent = entry.value;
 
     if (newUser.trim() === "") {
-        alert("Please Enter a Username!");
+        noForm.style.display = "inline";
     } else if (newTitle.trim() === "") {
-        alert("Please Enter a Title!");
+        noForm.style.display = "inline";
     } else if (newContent.trim() === "") {
-        alert("Blog Something!");
+        noForm.style.display = "inline";
     } else {
         const newEntry = {
             username: newUser,
@@ -28,8 +29,12 @@ function submitForm() {
     }
 };
 // TODO: Add an event listener to the form on submit. Call the function to handle the form submission.
-submit.addEventListener('click', function (event) {
-    event.preventDefault();
-    submitForm();
-});
-
+function submitCheck() {
+    if (submit) {
+        submit.addEventListener('click', function (event) {
+            event.preventDefault();
+            submitForm();
+        });
+    };
+};
+submitCheck();

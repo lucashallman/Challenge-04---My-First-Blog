@@ -7,11 +7,13 @@ const placeholder = false
 function buildPost(x) {
     //build an element for each part of the blog entry
     const post = document.createElement('ul');
+    post.classList.add('card');
     const newEntry = x;
 
     const username = newEntry.username;
     const postUsername = document.createElement('li');
-    postUsername.textContent = username
+    postUsername.textContent = username;
+    postUsername.classList.add('renderUser');
 
     const title = newEntry.title;
     const postTitle = document.createElement('li');
@@ -38,19 +40,18 @@ function noBlog() {
     noBlogContent.textContent = "Nothing to display, check again soon!"
     noBlog.appendChild(noBlogContent);
     myMain.appendChild(noBlog);
-}
+};
 // TODO: Create a function called `renderBlogList` that renders the list of blog posts if they exist. If not, call the no posts function.
 function renderBlogList() {
-    if (posts > 0) {
-        /*display the blog posts*/
-        for (let i = 0; i < posts.length; i++) {
-            let x = posts[i];
-            buildPost(x);
-        }
-    } else {
+    const array = JSON.parse(localStorage.getItem('Posts'));
+    if (!array) {
         noBlog();
-    }
-}
+    } else {
+        for (let x = 0; x < array.length; x++) {
+            buildPost(array[x])
+        };
+    };
+};
 // TODO: Call the `renderBlogList` function
 renderBlogList();
 // TODO: Redirect to the home page using the `redirectPage` function found in logic.js when the back button is clicked

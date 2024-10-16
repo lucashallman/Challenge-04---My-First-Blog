@@ -1,5 +1,6 @@
-const darkMode = document.getElementById("slider")
-const bodyEL = document.querySelector('body')
+const darkMode = document.getElementById("slider");
+const bodyEL = document.querySelector('body');
+const footerEL = document.querySelector('footer');
 
 // TODO: Create logic to toggle the light/dark mode styles for the page and circle. The mode should be saved to local storage.
 darkMode.addEventListener('change', function () {
@@ -7,25 +8,23 @@ darkMode.addEventListener('change', function () {
     console.log(isLight);
     if (isLight) {
         bodyEL.classList.add('dark');
+        footerEL.classList.add('dark')
         localStorage.setItem('mode', 'dark');
     } else {
         bodyEL.classList.remove('dark');
+        footerEL.classList.remove('dark');
         localStorage.setItem('mode', 'light');
     };
 });
 
 // TODO: Create a function called `readLocalStorage` that reads from local storage and returns the data. If no data exists, return an empty array.
 function readLocalStorage() {
-    if (posts.length === 0) {
-        const noData = {
-            username: 'NODATA',
-            title: '',
-            content: '',
-        };
-        console.log(noData)
+    const posts = localStorage.getItem('Posts');
+    const noPosts = [];
+    if (!posts) {
+        console.log(noPosts);
     } else {
-        console.log(localStorage.getItem('Posts'));
-
+        console.log(JSON.parse(posts));
     }
 };
 readLocalStorage();

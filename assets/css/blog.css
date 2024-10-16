@@ -78,6 +78,12 @@ a {
   .light a {
     color: var(--dark);
   }
+
+  .renderUser {
+    color: gray;
+    font-style: italic;
+    font-size: 20;
+  }
   
   /*
     IDs
