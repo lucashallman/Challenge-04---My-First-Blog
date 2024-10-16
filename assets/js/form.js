@@ -24,6 +24,7 @@ function submitForm() {
             title: newTitle,
             content: newContent,
         };
+        noForm.style.display = "none";
         storeLocalStorage(newEntry);
         redirectPage('./blog.html');
     }

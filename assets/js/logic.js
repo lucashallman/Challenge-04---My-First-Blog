@@ -1,6 +1,8 @@
 const darkMode = document.getElementById("slider");
 const bodyEL = document.querySelector('body');
 const footerEL = document.querySelector('footer');
+const formEL = document.querySelector('form');
+
 
 // TODO: Create logic to toggle the light/dark mode styles for the page and circle. The mode should be saved to local storage.
 darkMode.addEventListener('change', function () {
@@ -8,7 +10,7 @@ darkMode.addEventListener('change', function () {
     console.log(isLight);
     if (isLight) {
         bodyEL.classList.add('dark');
-        footerEL.classList.add('dark')
+        footerEL.classList.add('dark');
         localStorage.setItem('mode', 'dark');
     } else {
         bodyEL.classList.remove('dark');
