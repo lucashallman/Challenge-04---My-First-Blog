@@ -6,22 +6,24 @@ const placeholder = false
 // TODO: Create a function that builds an element and appends it to the DOM
 function buildPost(x) {
     //build an element for each part of the blog entry
-    const post = document.createElement('ul');
+    const post = document.createElement('article');
     post.classList.add('card');
     const newEntry = x;
 
     const username = newEntry.username;
-    const postUsername = document.createElement('li');
+    const postUsername = document.createElement('p');
     postUsername.textContent = username;
     postUsername.classList.add('renderUser');
 
     const title = newEntry.title;
-    const postTitle = document.createElement('li');
+    const postTitle = document.createElement('h2');
     postTitle.textContent = title;
+    postTitle.classList.add('renderTitle');
 
     const content = newEntry.content;
-    const postContent = document.createElement('li');
+    const postContent = document.createElement('blockquote');
     postContent.textContent = content;
+    postContent.classList.add('renderContent');
     //structure the elements with appendChild
 
     post.appendChild(postUsername);

@@ -84,6 +84,14 @@ a {
     font-style: italic;
     font-size: 20;
   }
+
+  .renderTitle {
+    font-size: 40;
+  }
+
+  .renderContent {
+    font-size: 30;
+  }
   
   /*
     IDs
